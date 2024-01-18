@@ -412,17 +412,17 @@ class EZVitsDataset:
             self.set_log_index(i, len(transform_list))
 
             # 2. Convert video to audio file
-            # result = self.video_to_audio(
-            #     os.path.join(self._params.download_path, video),
-            #     os.path.join(self._params.output_path, audio),
-            # )
-            # if not result:
-            #     continue
-            #
-            # # 3. Separate vocals from audio files
-            # self.vocal_separator(
-            #     os.path.join(self._params.output_path, audio),
-            # )
+            result = self.video_to_audio(
+                os.path.join(self._params.download_path, video),
+                os.path.join(self._params.output_path, audio),
+            )
+            if not result:
+                continue
+            
+            # 3. Separate vocals from audio files
+            self.vocal_separator(
+                os.path.join(self._params.output_path, audio),
+            )
 
             # 4. Transcribe audio
             script = self.transcribe_audio(
@@ -438,6 +438,6 @@ class EZVitsDataset:
             # 6. Split the train.txt and val.txt files
             self.split_filelist()
 
-            # 6. Program Cleanup
+            # 7. Program Cleanup
             self.cleanup()
             self.finish_log()
