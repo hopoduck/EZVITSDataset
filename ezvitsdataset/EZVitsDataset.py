@@ -200,7 +200,6 @@ class EZVitsDataset:
         ).output(
             output_file,
             ar=self._params.sampling_rate,
-            ac=1,
         ).run(
             quiet=True,
             overwrite_output=True,
@@ -321,6 +320,7 @@ class EZVitsDataset:
                     separated_audio_file,
                     ss=script["start"],
                     t=script["end"] - script["start"] + 0.2,
+                    ac=1,
                 ).run(quiet=True, overwrite_output=True)
                 self._count += 1
                 self._total_time += script["end"] - script["start"] + 0.2
@@ -418,7 +418,7 @@ class EZVitsDataset:
             )
             if not result:
                 continue
-            
+
             # 3. Separate vocals from audio files
             self.vocal_separator(
                 os.path.join(self._params.output_path, audio),
