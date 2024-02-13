@@ -60,9 +60,7 @@ class EZVitsDatasetParams:
         self.log_level = log_level if log_level is not None else logging.DEBUG
 
         # download_youtube
-        self.skip_download = (
-            skip_download if skip_download is not None else skip_download
-        )
+        self.skip_download = skip_download if skip_download is not None else False
         self.youtube_dl_option = (
             youtube_dl_option
             if youtube_dl_option is not None

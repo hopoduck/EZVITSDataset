@@ -53,6 +53,29 @@ After that, run `main.py`.
 python main.py
 ```
 
+### `EZVitsDatasetParams` parameters
+
+- language: Video file language (automatically detects whisper if not set, but speed may be slow)
+- skip_download: Skip YouTube download (default: `False`)
+- youtube_dl_option: [`yt-dlp`](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#usage-and-options) options
+- sampling_rate: Output wav file sampling rate (default: `44100`)
+- skip_min_time: Do not process the dataset if it is shorter than the specified number of seconds (default: `10`)
+- skip_max_time: Do not process the dataset if it is longer than the specified number of seconds (default: `10`)
+- remove_original_file: Delete the original file after processing the dataset (default: `False`)
+- whisper_model: whisper model name (default: `'large-v2'`)
+- device: device to run cpu/cuda (default: `'cuda'`)
+- compute_type: Change depending on the execution device (default: `'float16'`)
+- overwrite_data: Whether to overwrite in case of duplication during data processing (default: `False`)
+- audio_separator_model: uvr model name (default: `'UVR_MDXNET_KARA_2'`)
+- batch_size: Amount of data to be processed at once when processing whisper model, can be lowered when VRAM is
+  insufficient (default value: `8`)
+- chunk_size: Length of one sentence when processing whisper model (default: `6`)
+- remove_tmp_file: Whether to delete temporary files after task completion (default: `False`)
+- download_path: Path to download video
+- uvr_path: Path to save audio file after uvr processing
+- output_path: Path to save the audio file after all processing.
+- filelist_path: `filelist.txt`, `train.txt`, `val.txt` creation path
+
 ## License
 
 EZVitsDataset is released under the MIT license. For more information, see the LICENSE file in the repository.
