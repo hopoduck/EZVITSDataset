@@ -20,7 +20,7 @@ conda create --name dataset python=3.10
 conda activate dataset
 
 pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
-pip install "audio-separator[gpu]>=0.13.0" # or pip install "audio-separator[cpu]>=0.13.0"
+pip install "audio-separator[gpu]>=0.15.2" # or pip install "audio-separator[cpu]>=0.15.2"
 pip install -r requirements.txt
 ```
 
@@ -66,7 +66,9 @@ python main.py
 - device: device to run cpu/cuda (default: `'cuda'`)
 - compute_type: Change depending on the execution device (default: `'float16'`)
 - overwrite_data: Whether to overwrite in case of duplication during data processing (default: `False`)
-- audio_separator_model: uvr model name (default: `'UVR_MDXNET_KARA_2'`)
+- audio_separator_model: uvr model name (default: `'UVR_MDXNET_KARA_2.onnx'`)
+    - You can check available models
+      at [here](https://raw.githubusercontent.com/TRvlvr/application_data/main/filelists/download_checks.json).
 - batch_size: Amount of data to be processed at once when processing whisper model, can be lowered when VRAM is
   insufficient (default value: `8`)
 - chunk_size: Length of one sentence when processing whisper model (default: `6`)

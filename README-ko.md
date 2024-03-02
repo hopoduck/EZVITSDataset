@@ -20,7 +20,7 @@ conda create --name dataset python=3.10
 conda activate dataset
 
 pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
-pip install "audio-separator[gpu]>=0.13.0" # or pip install "audio-separator[cpu]>=0.13.0"
+pip install "audio-separator[gpu]>=0.15.2" # or pip install "audio-separator[cpu]>=0.15.2"
 pip install -r requirements.txt
 ```
 
@@ -65,7 +65,9 @@ python main.py
 - device: 실행할 장치 cpu/cuda (기본값: `'cuda'`)
 - compute_type: 실행 장치에 따라 변경 (기본값: `'float16'`)
 - overwrite_data: 데이터 처리 중 중복 시 덮어쓰기 여부 (기본값: `False`)
-- audio_separator_model: uvr 모델명 (기본값: `'UVR_MDXNET_KARA_2'`)
+- audio_separator_model: uvr 모델명 (기본값: `'UVR_MDXNET_KARA_2.onnx'`)
+    - [이 곳](https://raw.githubusercontent.com/TRvlvr/application_data/main/filelists/download_checks.json)에서 사용 가능한 모델을
+      확인할 수 있습니다.
 - batch_size: whisper 모델 처리 시 한번에 처리할 데이터 양, VRAM 부족 시 낮출 수 있음 (기본값: `8`)
 - chunk_size: whisper 모델 처리 시 한 문장의 길이 (기본값: `6`)
 - remove_tmp_file: 작업 완료 후 임시파일 삭제 여부 (기본값: `False`)

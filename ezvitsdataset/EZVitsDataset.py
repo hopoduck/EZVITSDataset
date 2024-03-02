@@ -93,7 +93,7 @@ class EZVitsDatasetParams:
         self.audio_separator_model = (
             audio_separator_model
             if audio_separator_model is not None
-            else "UVR_MDXNET_KARA_2"
+            else "UVR_MDXNET_KARA_2.onnx"
         )
 
         # transcribe_audio
